@@ -1,0 +1,95 @@
+.scroll-highlight-section {
+  position: relative;
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  margin-top: 10rem;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent */
+  padding: 3rem 12rem;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  max-width: 90%;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.overlay h2 {
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  margin: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .overlay {
+    padding: 2.5rem 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 2rem 3rem;
+  }
+
+  .overlay h2 {
+    font-size: 2rem;
+  }
+
+  .overlay p {
+    font-size: 1.1rem;
+    margin: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .overlay h2 {
+    font-size: 1.8rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+    margin: 12px;
+  }
+}
+
+.rental-banner {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: rgba(255, 215, 0, 0.85);
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.rental-banner:hover {
+  background-color: rgba(255, 215, 0, 1);
+}
+

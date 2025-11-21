@@ -1,0 +1,125 @@
+/* AdminAddTeam.css */
+
+.admin-add-team {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Outfit', sans-serif;
+  background-color: #fdfdfd;
+}
+
+.admin-add-team h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-add-team form input,
+.admin-add-team form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.admin-add-team form button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #d4a300;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-add-team form button:hover {
+  background-color: #c29500;
+}
+
+.admin-add-team p {
+  margin-top: 10px;
+  color: green;
+  font-weight: 500;
+}
+
+/* Members List */
+.team-members h3 {
+  margin-top: 40px;
+  font-size: 1.6rem;
+  color: #222;
+}
+
+.team-member {
+  border: 1px solid #ccc;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.team-member-content {
+  flex: 1;
+}
+
+.team-member h4 {
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+
+.team-member p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.team-member button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.team-member button:last-child {
+  background-color: #d32f2f;
+}
+
+.team-member button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .team-member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .team-member img {
+    margin-bottom: 10px;
+  }
+
+  .team-member-content {
+    width: 100%;
+  }
+}

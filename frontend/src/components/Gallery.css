@@ -1,0 +1,184 @@
+.gallery-container {
+  padding: 2rem 2rem;
+  font-family: 'Outfit', sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 0;       
+  min-height: auto;
+}
+
+/* Header */
+.gallery-header {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+  margin-top: -40px;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+/* Description */
+.gallery-description {
+  text-align: center;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.category-tab {
+  padding: 0.6rem 1.5rem;
+  background: #f4f4f8;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: #333;
+  font-weight: 500;
+}
+
+.category-tab.active {
+  background-color: #fff;
+  border-color: #ddd;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Scrollable Gallery */
+.gallery-scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem 2rem;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Gallery Card */
+.gallery-card {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0 0.8rem 1.2rem 0;
+  width: 350px;
+  height: 550px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: scale(1.01);
+  filter: brightness(1.05);
+}
+
+/* Image Styling */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.gallery-card-stacked {
+   display: inline-flex;
+  flex-direction: column;
+  width: 350px;
+  height: 550px;
+  margin-right: 1rem;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.gallery-image-stacked {
+   width: 100%;
+  height: calc(50% - 5px);;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+
+.scroll-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.scroll-btn:hover {
+  background-color: #eee;
+  opacity: 1;
+}
+
+.scroll-btn.left {
+  margin-right: -1.5rem;
+}
+
+.scroll-btn.right {
+  margin-left: -1.5rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-card,
+  .gallery-card-stacked {
+    width: 280px;
+    height: 380px;
+  }
+
+  .gallery-image-stacked {
+    height: calc(50% - 5px);
+  }
+}
+
+.gallery-image,
+.gallery-image-stacked {
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              filter 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center center;
+  cursor: pointer;
+}
+
+
+.gallery-card:hover .gallery-image,
+.gallery-card-stacked img:hover {
+  transform: scale(1.01);
+  filter: brightness(1.05);
+}
+
+

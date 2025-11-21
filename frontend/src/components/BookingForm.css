@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.booking-container {
+  max-width: 100%;
+  padding: 4rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background-image: url('https://images.pexels.com/photos/7946557/pexels-photo-7946557.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #000;
+  margin-top: 30px;
+  position: relative;
+}
+
+.booking-container h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subtext {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #000000;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.full {
+  grid-column: span 2;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  background-color: #e2b108;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #cba206;
+}
+
+.error,
+.success {
+  grid-column: span 2;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .booking-grid {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+  }
+
+  .submit-btn {
+    grid-column: span 1;
+  }
+
+  .full {
+    grid-column: span 1;
+  }
+
+  .booking-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .subtext {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small devices (≤480px) */
+@media (max-width: 480px) {
+  .booking-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .subtext {
+    font-size: 0.9rem;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+}

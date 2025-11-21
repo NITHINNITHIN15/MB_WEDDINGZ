@@ -1,0 +1,180 @@
+.contact-page {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f8f9fc;
+  margin: 50px auto;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 90px;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1 1 50%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.contact-left-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.contact-left h1 {
+  font-size: 2rem;
+  font-family: 'Georgia', serif;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.contact-left p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 auto 20px;
+}
+
+.decorative-box {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #e2b108;
+}
+
+.contact-right {
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.contact-heading {
+  position: absolute;
+  top: 60px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #0077cc;
+}
+
+.submit-button {
+  background-color: #e2b108;
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #cba206;
+}
+
+.success-message,
+.error-message {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-heading {
+    top: 30px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex: 1 1 100%;
+    padding: 20px;
+  }
+
+  .contact-heading {
+    position: relative;
+    top: auto;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .contact-form {
+    margin-top: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .contact-left h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-left p {
+    font-size: 0.95rem;
+  }
+
+  .contact-heading {
+    font-size: 1.2rem;
+  }
+
+  .submit-button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+

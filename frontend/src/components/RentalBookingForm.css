@@ -1,0 +1,142 @@
+/* Fullscreen overlay */
+.booking-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Booking form container */
+.booking-form-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Outfit', sans-serif;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.booking-form-container h3 {
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+/* Inputs and labels */
+.booking-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+
+.booking-form-container label {
+  font-weight: 600;
+  text-align: left;
+  color: #555;
+  margin-bottom: -0.5rem;
+  font-size: 0.95rem;
+}
+
+.booking-form-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fefefe;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.booking-form-container input:focus {
+  border-color: #ffa94d;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.2);
+}
+
+
+.booking-form-container input:focus {
+  border-color: #ffb347;
+}
+
+/* Price display */
+.booking-form-container p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+/* Action buttons */
+.booking-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.booking-actions button {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.booking-actions button[type="submit"] {
+  background-color: #ff7b00;
+  color: #fff;
+}
+
+.booking-actions button[type="submit"]:hover {
+  background-color: #e06500;
+}
+
+.booking-actions .cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.booking-actions .cancel:hover {
+  background-color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .booking-form-container {
+    padding: 1.5rem;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+  }
+
+  .booking-actions button {
+    width: 100%;
+  }
+}

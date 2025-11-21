@@ -1,0 +1,171 @@
+.admin-services-form {
+   max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fffbea;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-services-content {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-services-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+
+.form-section {
+  flex: 1;
+  min-width: 300px;
+  margin-top: 40px;
+}
+
+.list-section {
+  flex: 1;
+  min-width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Optional scroll styling */
+.list-section::-webkit-scrollbar {
+  width: 6px;
+}
+.list-section::-webkit-scrollbar-thumb {
+  background-color: goldenrod;
+  border-radius: 4px;
+}
+
+.admin-services-form h3 {
+  margin-top: 40px;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.admin-services-form label {
+  display: block;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.admin-services-form input,
+.admin-services-form textarea,
+.admin-services-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.admin-services-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.admin-services-form button {
+  padding: 10px 16px;
+  margin: 10px 5px 0 0;
+  background-color: goldenrod;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-services-form button:hover {
+  background-color: #c89d00;
+}
+
+.services-list {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.services-list li {
+  background: #fff;
+  margin-bottom: 12px;
+  padding: 16px;
+  border-left: 4px solid goldenrod;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.services-list li strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.services-list li button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  background-color: #555;
+  color: white;
+  margin-left: 8px;
+}
+
+.services-list li button:hover {
+  background-color: #000;
+}
+
+.feature-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.feature-input-row input {
+  flex: 1;
+}
+
+.delete-feature-btn {
+  background-color: crimson !important;
+  color: white !important;
+  font-size: 1rem;
+  margin-top: -10px !important;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-feature-btn:hover {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.deletebutton {
+    color: white;
+    background-color: crimson !important ;
+}
+
+/* Responsive: stack on small screens */
+@media screen and (max-width: 768px) {
+  .admin-services-content {
+    flex-direction: column;
+  }
+
+  .form-section, .list-section {
+    width: 100%;
+  }
+}
+
