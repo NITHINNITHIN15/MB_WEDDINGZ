@@ -48,7 +48,7 @@ export default function AdminBookings() {
   return (
   <>
     <div className="admin-bookings-container">
-      <h2>Bookings Management</h2>
+      {/* <h2>Bookings Management</h2> */}
       {error && <p className="error-text">{error}</p>}
       {bookings.length === 0 ? (
         <p>No bookings found.</p>

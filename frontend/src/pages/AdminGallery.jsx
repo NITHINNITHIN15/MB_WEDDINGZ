@@ -1,5 +1,6 @@
-import React, { useEffect, useState,useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import API from '../api/axios';
+import './AdminGallery.css';
 
 export default function AdminGallery() {
   const [gallery, setGallery] = useState([]);
@@ -25,13 +26,8 @@ export default function AdminGallery() {
     }
   };
 
-  const handleFileChange = (e) => {
-    setImageFile(e.target.files[0]);
-  };
-
-  const handleInputChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleFileChange = (e) => setImageFile(e.target.files[0]);
+  const handleInputChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleAddGallery = async (e) => {
     e.preventDefault();
@@ -81,14 +77,20 @@ export default function AdminGallery() {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="admin-gallery-container">
       <h2>Gallery Management</h2>
 
-      <form onSubmit={handleAddGallery} style={{ marginBottom: '2rem' }}>
-        <label>Upload Image (File):</label><br />
-        <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileChange} required /><br />
+      <form onSubmit={handleAddGallery} className="admin-gallery-form">
+        <label>Upload Image (File):</label>
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          required
+        />
 
-        <label>Category:</label><br />
+        <label>Category:</label>
         <select
           name="category"
           value={form.category}
@@ -100,25 +102,24 @@ export default function AdminGallery() {
           <option value="muslim">Muslim</option>
           <option value="pre-wedding">Pre-wedding</option>
           <option value="other">Other</option>
-        </select><br />
+        </select>
 
         <button type="submit">Add Gallery Item</button>
       </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+      {error && <p className="admin-gallery-message error">{error}</p>}
+      {success && <p className="admin-gallery-message success">{success}</p>}
 
       <h3>Gallery Items</h3>
       {gallery.length === 0 ? (
         <p>No items found.</p>
       ) : (
-        <ul>
+        <ul className="admin-gallery-list">
           {gallery.map((item) => (
-            <li key={item._id}>
+            <li key={item._id} className="admin-gallery-card">
               <img
                 src={`http://localhost:5000${item.imageUrl}`}
                 alt="Gallery"
-                style={{ width: '100px', borderRadius: '6px' }}
               />
               <p><strong>Category:</strong> {item.category}</p>
               <p><strong>Uploaded:</strong> {new Date(item.createdAt).toLocaleString()}</p>

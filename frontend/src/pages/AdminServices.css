@@ -1,6 +1,6 @@
 .admin-services-form {
-   max-width: 1200px;
-  margin: 50px auto;
+  max-width: 1200px;
+  margin: 10px auto;
   padding: 20px;
   background-color: #fffbea;
   border-radius: 12px;
@@ -10,7 +10,6 @@
 .admin-services-content {
   display: flex;
   gap: 30px;
-  margin-top: 20px;
   flex-wrap: wrap;
 }
 
@@ -21,22 +20,21 @@
   font-size: 1.8rem;
 }
 
-
 .form-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
   margin-top: 40px;
 }
 
 .list-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
   max-height: 80vh;
   overflow-y: auto;
   padding-right: 10px;
 }
 
-/* Optional scroll styling */
+/* Scrollbar design */
 .list-section::-webkit-scrollbar {
   width: 6px;
 }
@@ -91,6 +89,8 @@
   background-color: #c89d00;
 }
 
+/* ===== SERVICES LIST ===== */
+
 .services-list {
   margin-top: 20px;
   list-style: none;
@@ -105,9 +105,10 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .services-list li strong {
@@ -127,6 +128,12 @@
   background-color: #000;
 }
 
+.deletebutton {
+  color: white;
+  background-color: crimson !important;
+}
+
+/* ===== FEATURE INPUT ROW ===== */
 .feature-input-row {
   display: flex;
   align-items: center;
@@ -142,7 +149,6 @@
   background-color: crimson !important;
   color: white !important;
   font-size: 1rem;
-  margin-top: -10px !important;
   border: none;
   padding: 6px 10px;
   border-radius: 6px;
@@ -150,22 +156,79 @@
 }
 
 .delete-feature-btn:hover {
-  background-color: rgb(255, 255, 255) !important;
+  background-color: #ff4d4d !important;
 }
 
-.deletebutton {
-    color: white;
-    background-color: crimson !important ;
+/* ================================================================= */
+/*                    RESPONSIVE BREAKPOINTS                         */
+/* ================================================================= */
+
+/* Large Tablets */
+@media screen and (max-width: 1024px) {
+  .admin-services-content {
+    gap: 20px;
+  }
+  .services-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-/* Responsive: stack on small screens */
+/* Tablets and below */
 @media screen and (max-width: 768px) {
   .admin-services-content {
     flex-direction: column;
   }
-
+  
   .form-section, .list-section {
+    width: 100%;
+  }
+
+  .services-list li button {
+    width: 100%;
+    margin: 5px 0 0 0;
+  }
+}
+
+/* Large phones */
+@media screen and (max-width: 480px) {
+  .admin-services-form {
+    padding: 15px;
+  }
+
+  .admin-services-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .services-list li {
+    padding: 12px;
+  }
+
+  .feature-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .delete-feature-btn {
     width: 100%;
   }
 }
 
+/* Very small phones (iPhone SE, Moto E, 360px width) */
+@media screen and (max-width: 360px) {
+  .admin-services-form input,
+  .admin-services-form textarea,
+  .admin-services-form select {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .admin-services-form button {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .services-list li {
+    gap: 8px;
+  }
+}

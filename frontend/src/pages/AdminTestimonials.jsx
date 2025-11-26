@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import './AdminTestimonials.css'; 
 import {
   Container, Typography, Table, TableBody, TableCell, TableHead, TableRow, Switch, Rating
 } from '@mui/material';
 import API from '../api/axios';
 
+
 const AdminTestimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
-
   const fetchTestimonials = async () => {
     const res = await API.get('/testimonials');
     setTestimonials(res.data);
@@ -22,9 +23,7 @@ const AdminTestimonials = () => {
   }, []);
 
   return (
-    <>
-   
-    <Container>
+    <Container className="admin-testimonials-container">
       <Typography variant="h4" gutterBottom>Manage Testimonials</Typography>
       <Table>
         <TableHead>
@@ -39,13 +38,15 @@ const AdminTestimonials = () => {
         <TableBody>
           {testimonials.map((t) => (
             <TableRow key={t._id}>
-              <TableCell>{t.name}</TableCell>
-              <TableCell>{t.weddingType}</TableCell>
-              <TableCell>
+              <TableCell data-label="Name">{t.name}</TableCell>
+              <TableCell data-label="Wedding Type">{t.weddingType}</TableCell>
+              <TableCell data-label="Rating">
                 <Rating value={t.rating} readOnly />
               </TableCell>
-              <TableCell><img src={t.image} alt={t.name} width={60} /></TableCell>
-              <TableCell>
+              <TableCell data-label="Image">
+                <img src={t.image} alt={t.name} width={60} />
+              </TableCell>
+              <TableCell data-label="Active">
                 <Switch
                   checked={t.isActive}
                   onChange={(e) => toggleActive(t._id, e.target.checked)}
@@ -56,7 +57,6 @@ const AdminTestimonials = () => {
         </TableBody>
       </Table>
     </Container>
-    </>
   );
 };
 

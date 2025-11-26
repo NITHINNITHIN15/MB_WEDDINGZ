@@ -30,8 +30,8 @@
 
 .admin-bookings-container th {
   background-color: #e2b108;
-  color: white;
-  font-weight: 600;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
 }
 
 .admin-bookings-container tr:nth-child(even) {

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from '../api/axios';
 import './AdminAddTeam.css';
 
-
 export default function AdminAddTeam() {
   const [formData, setFormData] = useState({
     name: '',
@@ -11,7 +10,6 @@ export default function AdminAddTeam() {
     instagram: '',
     facebook: '',
   });
-  
 
   const formRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -20,7 +18,6 @@ export default function AdminAddTeam() {
   const [members, setMembers] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
-  // Fetch team members
   const fetchMembers = async () => {
     try {
       const res = await axios.get('/team');
@@ -50,7 +47,6 @@ export default function AdminAddTeam() {
 
     try {
       if (editingId) {
-        console.log('Updating member with ID:', editingId);
         await axios.put(`/team/${editingId}`, data, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
@@ -63,15 +59,7 @@ export default function AdminAddTeam() {
         setMessage('Team member added!');
       }
 
-      // ✅ Fix: Reset all form fields
-      setFormData({
-        name: '',
-        role: '',
-        bio: '',
-        instagram: '',
-        facebook: '',
-      });
-
+      setFormData({ name: '', role: '', bio: '', instagram: '', facebook: '' });
       setImage(null);
       fileInputRef.current.value = null;
       fetchMembers();
@@ -105,77 +93,81 @@ export default function AdminAddTeam() {
   };
 
   return (
-    <div ref={formRef} className="admin-add-team">
-      <h2>{editingId ? 'Edit' : 'Add'} Team Member</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="role"
-          placeholder="Role"
-          value={formData.role}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="bio"
-          placeholder="Bio"
-          value={formData.bio}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="url"
-          name="instagram"
-          placeholder="Instagram URL"
-          value={formData.instagram}
-          onChange={handleChange}
-        />
-        <input
-          type="url"
-          name="facebook"
-          placeholder="Facebook URL"
-          value={formData.facebook}
-          onChange={handleChange}
-        />
-        <input
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={handleFileChange}
-          ref={fileInputRef}
-        />
-        <button type="submit">{editingId ? 'Update' : 'Submit'}</button>
-      </form>
-
-      {message && <p>{message}</p>}
-
-      <div className="team-members">
-        <h3>Team Members</h3>
-        {members.length === 0 && <p>No team members yet.</p>}
-        {members.map(member => (
-          <div key={member._id} className="team-member">
-            <img
-              src={`http://localhost:5000${member.imageUrl}`}
-              alt={member.name}
+    <div className="yellow-wrapper">
+      <div className="admin-add-team-container">
+        {/* Form Section */}
+        <div className="form-section" ref={formRef}>
+          <h2>{editingId ? 'Edit' : 'Add'} Team Member</h2>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
             />
-            <div className="team-member-content">
-              <h4>{member.name}</h4>
-              <p><strong>Role:</strong> {member.role}</p>
-              <p><strong>Specialization:</strong> {member.specialization}</p>
-              <p>{member.bio}</p>
-              <button onClick={() => handleEdit(member)}>Edit</button>
-              <button onClick={() => handleDelete(member._id)}>Delete</button>
+            <input
+              type="text"
+              name="role"
+              placeholder="Role"
+              value={formData.role}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              name="bio"
+              placeholder="Bio"
+              value={formData.bio}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="url"
+              name="instagram"
+              placeholder="Instagram URL"
+              value={formData.instagram}
+              onChange={handleChange}
+            />
+            <input
+              type="url"
+              name="facebook"
+              placeholder="Facebook URL"
+              value={formData.facebook}
+              onChange={handleChange}
+            />
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleFileChange}
+              ref={fileInputRef}
+            />
+            <button type="submit">{editingId ? 'Update' : 'Submit'}</button>
+          </form>
+          {message && <p className="message">{message}</p>}
+        </div>
+
+        {/* Team Members Section */}
+        <div className="members-section">
+          <h3>Team Members</h3>
+          {members.length === 0 && <p>No team members yet.</p>}
+          {members.map(member => (
+            <div key={member._id} className="team-member">
+              <img src={`http://localhost:5000${member.imageUrl}`} alt={member.name} />
+              <div className="team-member-content">
+                <h4>{member.name}</h4>
+                <p><strong>Role:</strong> {member.role}</p>
+                <p><strong>Specialization:</strong> {member.specialization}</p>
+                <p>{member.bio}</p>
+                <div className="member-buttons">
+                  <button onClick={() => handleEdit(member)}>Edit</button>
+                  <button onClick={() => handleDelete(member._id)}>Delete</button>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

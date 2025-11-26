@@ -1,21 +1,61 @@
-/* AdminAddTeam.css */
-
-.admin-add-team {
-  max-width: 600px;
-  margin: 40px auto;
+/* Container for form + members */
+.admin-add-team-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
   font-family: 'Outfit', sans-serif;
-  background-color: #fdfdfd;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.admin-add-team h2 {
-  font-size: 2rem;
+
+/* Yellow background wrapper */
+.yellow-wrapper {
+  background-color: #ffffff;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.yellow-wrapper .admin-add-team-container {
+  background-color: #fffbea;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Form Section */
+.form-section {
+  flex: 0 0 350px;
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.form-section h2 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
   color: #333;
+  text-align: center;
 }
 
-.admin-add-team form input,
-.admin-add-team form textarea {
+.form-section form input,
+.form-section form textarea {
   width: 100%;
   padding: 10px 12px;
   margin: 10px 0;
@@ -24,7 +64,7 @@
   font-size: 1rem;
 }
 
-.admin-add-team form button {
+.form-section form button {
   margin-top: 10px;
   padding: 10px 16px;
   background-color: #d4a300;
@@ -33,26 +73,42 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.admin-add-team form button:hover {
+.form-section form button:hover {
   background-color: #c29500;
 }
 
-.admin-add-team p {
+.message {
   margin-top: 10px;
   color: green;
   font-weight: 500;
 }
 
-/* Members List */
-.team-members h3 {
-  margin-top: 40px;
-  font-size: 1.6rem;
-  color: #222;
+
+/* Members Section */
+.members-section {
+  flex: 1;
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
+/* Scrollbar */
+.members-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.members-section::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+/* Team Member Card */
 .team-member {
   border: 1px solid #ccc;
   margin-top: 15px;
@@ -61,13 +117,12 @@
   background-color: #f9f9f9;
   display: flex;
   gap: 15px;
-  flex-direction: row;
   align-items: flex-start;
 }
 
 .team-member img {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -87,28 +142,79 @@
   color: #444;
 }
 
-.team-member button {
+.member-buttons {
+  margin-top: 10px;
+}
+
+.member-buttons button {
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
-  background-color: #1976d2;
-  color: white;
-  margin-top: 10px;
   margin-right: 10px;
 }
 
-.team-member button:last-child {
-  background-color: #d32f2f;
+.member-buttons button:first-child {
+  background-color: #1976d2;
+  color: white;
 }
 
-.team-member button:hover {
+.member-buttons button:last-child {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.member-buttons button:hover {
   opacity: 0.9;
 }
 
-/* Responsive layout */
-@media (max-width: 600px) {
+
+
+
+
+
+
+/* -------------------------------------------------- */
+/* RESPONSIVENESS */
+/* -------------------------------------------------- */
+
+/* Large tablets (max 1200px) */
+@media (max-width: 1200px) {
+  .admin-add-team-container {
+    gap: 25px;
+  }
+}
+
+/* Tablets (max 900px) */
+@media (max-width: 900px) {
+  .admin-add-team-container {
+    flex-direction: column;   /* stack form + list */
+    align-items: center;
+  }
+
+  .form-section {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .members-section {
+    width: 100%;
+  }
+
+  .team-member {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .team-member img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* Mobile (max 768px) */
+@media (max-width: 768px) {
   .team-member {
     flex-direction: column;
     align-items: center;
@@ -117,9 +223,41 @@
 
   .team-member img {
     margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
   }
 
-  .team-member-content {
-    width: 100%;
+  .member-buttons button {
+    margin-bottom: 8px;
+  }
+}
+
+/* Small mobile (<480px) */
+@media (max-width: 480px) {
+
+  .yellow-wrapper .admin-add-team-container {
+    padding: 15px;
+  }
+
+  .form-section,
+  .members-section {
+    padding: 15px;
+  }
+
+  .form-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .team-member h4 {
+    font-size: 1.1rem;
+  }
+
+  .form-section form input,
+  .form-section form textarea {
+    font-size: 0.9rem;
+  }
+
+  .form-section form button {
+    padding: 8px 12px;
   }
 }

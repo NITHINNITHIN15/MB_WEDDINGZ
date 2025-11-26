@@ -1,0 +1,140 @@
+/* MAIN NAVBAR */
+.admin-navbar {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* LEFT */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.navbar-logo {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  margin-right: 2px;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* CENTER LINKS DESKTOP */
+.navbar-center {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-center a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar-center a:hover,
+.navbar-center a.active {
+  color: #e2b108;
+}
+
+/* RIGHT DESKTOP */
+.navbar-right button {
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-right: -20px;
+}
+
+/* HAMBURGER ICON */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 26px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+/* Hamburger animation */
+.bar1open {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.bar2open {
+  opacity: 0;
+}
+.bar3open {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* MOBILE MENU */
+.navbar-center.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.mobile-logout {
+  display: none;
+}
+
+/* ─────────────── RESPONSIVE ─────────────── */
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-center {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #222;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    border-top: 1px solid #444;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .mobile-logout {
+    display: block;
+    width: 100%;
+    background: red;
+    border: none;
+    padding: 0.7rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+  }
+}

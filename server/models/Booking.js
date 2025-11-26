@@ -14,11 +14,19 @@ const bookingSchema = new mongoose.Schema({
   eventType: {
     type: String,
     required: true,
-    enum: ["christian", "hindu", "muslim", "other"],
-    lowercase: true,
+    enum: [
+      "WeddingPhotography",
+      "PreWeddingShoots",
+      "CulturalCeremonies",
+      "FamilyPortraits",
+      "MaternityInfantShoots",
+      "EventCoverage",
+      "CouplePortraitShoots",
+      "CommercialShoots"
+    ]
   },
   location: { type: String, required: true, trim: true },
-  message: { type: String, required: true, trim: true  },
+  message: { type: String, required: true, trim: true },
   status: {
     type: String,
     default: "pending",

@@ -1,3 +1,4 @@
+// AdminContacts.jsx
 import React, { useEffect, useState } from 'react';
 import {
   Container,
@@ -13,11 +14,12 @@ import {
   CircularProgress,
   IconButton,
   Tooltip,
-  Paper
+  Paper,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReplayIcon from '@mui/icons-material/Replay';
 import API from '../api/axios';
+import './AdminContact.css';
 
 const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -34,7 +36,6 @@ const AdminContacts = () => {
       setLoading(false);
     }
   };
-
 
   useEffect(() => {
     fetchContacts();
@@ -61,20 +62,22 @@ const AdminContacts = () => {
   };
 
   return (
-    <>
-    
-    <Container sx={{ py: 4 }}>
+    <Container className="admin-contacts-container">
       <Typography variant="h5" gutterBottom>
         Manage Contact Messages
       </Typography>
 
       {loading ? (
-        <CircularProgress />
+        <div className="admin-contacts-loading">
+          <CircularProgress />
+        </div>
       ) : contacts.length === 0 ? (
-        <Typography>No contact messages found.</Typography>
+        <Typography className="admin-contacts-empty">
+          No contact messages found.
+        </Typography>
       ) : (
-        <Paper sx={{ overflow: 'auto' }}>
-          <Table>
+        <Paper className="admin-contacts-table-wrapper">
+          <Table className="admin-contacts-table">
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
@@ -88,15 +91,21 @@ const AdminContacts = () => {
             <TableBody>
               {contacts.map((c) => (
                 <TableRow key={c._id}>
-                  <TableCell>{c.name}</TableCell>
-                  <TableCell>{c.email}</TableCell>
-                  <TableCell>{c.subject}</TableCell>
-                  <TableCell>{c.message}</TableCell>
-                  <TableCell>
-                    <FormControl size="small" fullWidth>
+                  <TableCell data-label="Name">{c.name}</TableCell>
+                  <TableCell data-label="Email">{c.email}</TableCell>
+                  <TableCell data-label="Subject">{c.subject}</TableCell>
+                  <TableCell data-label="Message">{c.message}</TableCell>
+                  <TableCell data-label="Status">
+                    <FormControl
+                      size="small"
+                      fullWidth
+                      className="admin-contacts-select"
+                    >
                       <Select
                         value={c.status}
-                        onChange={(e) => handleStatusChange(c._id, e.target.value)}
+                        onChange={(e) =>
+                          handleStatusChange(c._id, e.target.value)
+                        }
                       >
                         <MenuItem value="unread">Unread</MenuItem>
                         <MenuItem value="read">Read</MenuItem>
@@ -104,17 +113,19 @@ const AdminContacts = () => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell>
+                  <TableCell data-label="Actions">
                     <Tooltip title="Delete">
                       <IconButton onClick={() => handleDelete(c._id)}>
                         <DeleteIcon color="error" />
                       </IconButton>
                     </Tooltip>
+                    {/* Optional refresh button
                     <Tooltip title="Refresh">
                       <IconButton onClick={fetchContacts}>
                         <ReplayIcon />
                       </IconButton>
                     </Tooltip>
+                    */}
                   </TableCell>
                 </TableRow>
               ))}
@@ -123,7 +134,6 @@ const AdminContacts = () => {
         </Paper>
       )}
     </Container>
-    </>
   );
 };
 

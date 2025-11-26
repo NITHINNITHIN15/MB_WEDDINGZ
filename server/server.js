@@ -22,11 +22,15 @@ app.use('/api/bookings', require('./routes/bookings'));
 app.use('/api/contacts', require('./routes/contacts'));
 app.use('/api/gallery', require('./routes/gallery'));
 app.use('/api/testimonials', require('./routes/testimonials'));
-app.use('/api/admin', require('./routes/admin'));
+
+app.use('/api/auth', require('./routes/authRoutes'));
+
 app.use('/api/team', require('./routes/teamRoutes'));
 app.use('/api/services', require('./routes/services'));
 app.use('/api/rentals', require('./routes/rentals'));
 app.use('/api/rental-bookings', require('./routes/rentalBookings'));
+
+
 
 
 // app.use('/uploads', express.static('uploads'));

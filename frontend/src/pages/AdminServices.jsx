@@ -144,9 +144,11 @@ export default function AdminServices() {
 
   return (
     <div className="admin-services-form">
-      <h2>{editId ? 'Edit Service' : 'Add a New Service'}</h2>
+      
       <div className="admin-services-content">
+        
       <form ref={formRef} onSubmit={handleSubmit} className="form-section">
+        <h2>{editId ? 'Edit Service' : 'Add a New Service'}</h2>
         <label>Title</label>
         <input name="title" value={form.title} onChange={handleChange} required />
         <label>Description</label>

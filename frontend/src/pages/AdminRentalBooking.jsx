@@ -58,7 +58,7 @@ export default function AdminRentalBookings() {
 
   return (
     <div className="admin-booking-page">
-      <h2>Rental Bookings</h2>
+      {/* <h2>Rental Bookings</h2> */}
 
       <div className="booking-controls">
         <label>Sort By: </label>

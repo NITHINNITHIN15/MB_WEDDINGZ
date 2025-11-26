@@ -21,36 +21,40 @@ html {
   backdrop-filter: blur(4px);
 }
 
+/* Left logo + titles */
 .navbar-left {
   display: flex;
   align-items: center;
 }
 
 .navbar-logo {
-  height: 30px;
+  height: 32px;
   width: 60px;
-  margin-right: 20px;
+  margin-right: 12px;
+}
+
+.navbar-title-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-title {
   font-family: "Prata", serif;
-  font-weight: 400;
-  font-style: normal;
   font-size: 24px;
-  color: white;
-  margin-top: 5px;
 }
 
+
+/* Links */
 .navbar-links {
   display: flex;
-  gap: 10px;
+  gap: 22px;
+  align-items: center;
 }
 
 .navbar-links a {
   color: white;
   text-decoration: none;
-  padding: 10px 15px;
-  transition: color 0.3s ease;
+  padding: 10px 8px;
 }
 
 .navbar-links a:hover {
@@ -64,14 +68,64 @@ html {
   padding: 8px 12px;
 }
 
-/* Mobile Menu Icon */
+/* Profile */
+.profile-container {
+  position: relative;
+}
+
+.profile-icon {
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.profile-icon:hover {
+  color: #f2b705;
+}
+
+/* Dropdown */
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 38px;
+  background: #111;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  animation: fadeIn 0.2s ease;
+}
+
+.profile-name {
+  font-size: 14px;
+  color: #f2b705;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 8px;
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropdown-btn:hover {
+  background: #c62839;
+}
+
+/* Mobile menu icon */
 .menu-icon {
   display: none;
   cursor: pointer;
-  color: white;
 }
 
-/* Responsive Styles */
+/* Mobile */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -81,12 +135,12 @@ html {
     position: absolute;
     top: 65px;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.799);
-    flex-direction: column;
     width: 100%;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.3s ease;
   }
 
   .navbar-links.open {
@@ -95,8 +149,18 @@ html {
   }
 
   .navbar-links a {
-    padding: 12px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
+
+  .profile-dropdown {
+    position: relative;
+    top: 5px;
+    right: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -1,0 +1,160 @@
+/* AdminContacts.css */
+
+/* Container styling */
+.admin-contacts-container {
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fffbea;
+  min-height: 90vh;
+}
+
+/* Heading */
+.admin-contacts-container h5 {
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Table wrapper for scroll */
+.admin-contacts-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+/* Table styling */
+.admin-contacts-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 650px; /* slightly reduced to help responsiveness */
+}
+
+/* Table Head */
+.admin-contacts-table thead {
+  background-color: #d7b41b;
+  color: #ffffff;
+}
+
+.admin-contacts-table thead th {
+  padding: 12px 15px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Table Body */
+.admin-contacts-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.admin-contacts-table tbody tr:hover {
+  background-color: #fff8d6;
+}
+
+.admin-contacts-table tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* MUI Select styling */
+.admin-contacts-select .MuiSelect-select {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+}
+
+.admin-contacts-select .MuiOutlinedInput-notchedOutline {
+  border-color: #ccc;
+}
+
+.admin-contacts-select.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #3498db;
+}
+
+/* Action buttons */
+.admin-contacts-table .MuiIconButton-root {
+  margin-right: 5px;
+  transition: transform 0.2s ease;
+}
+
+.admin-contacts-table .MuiIconButton-root:hover {
+  transform: scale(1.1);
+}
+
+/* Loading spinner center */
+.admin-contacts-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Empty message styling */
+.admin-contacts-empty {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+/* Medium / large breakpoints */
+@media (max-width: 1200px) {
+  .admin-contacts-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .admin-contacts-table {
+    min-width: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-contacts-table {
+    min-width: 480px;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 576px) {
+  .admin-contacts-container {
+    padding: 1rem;
+  }
+
+  .admin-contacts-table {
+    min-width: 100%;
+  }
+
+  /* Hide header on very small screens */
+  .admin-contacts-table thead {
+    display: none;
+  }
+
+  .admin-contacts-table tbody tr {
+    margin-bottom: 15px;
+    display: block;
+    border-bottom: 2px solid #ecf0f1;
+  }
+
+  .admin-contacts-table tbody td {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: right;
+    position: relative;
+  }
+
+  .admin-contacts-table tbody td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #2c3e50;
+  }
+}

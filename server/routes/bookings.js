@@ -19,7 +19,16 @@ router.post(
         return true;
       }),
     body('eventType')
-      .isIn(['christian', 'hindu', 'muslim', 'other'])
+      .isIn([
+        "WeddingPhotography",
+        "PreWeddingShoots",
+        "CulturalCeremonies",
+        "FamilyPortraits",
+        "MaternityInfantShoots",
+        "EventCoverage",
+        "CouplePortraitShoots",
+        "CommercialShoots"
+      ])
       .withMessage('Event type must be valid'),
     body('location').notEmpty().withMessage('Location is required'),
     body('message').notEmpty().withMessage('Message is required')
@@ -32,27 +41,22 @@ router.post(
 
       const { name, email, phone, eventDate, eventType, location, message } = req.body;
 
-       const booking = new Booking({
+      const booking = new Booking({
         name: name.trim(),
         email: email.trim().toLowerCase(),
         phone: phone.trim(),
         eventDate,
-        eventType: eventType.toLowerCase(),
+        eventType,
         location: location.trim(),
         message: message.trim(),
       });
 
       const saved = await booking.save();
-      res.status(201).json({
-        message: 'Booking submitted successfully!',
-        booking: saved
-      });
+      res.status(201).json({ message: 'Booking submitted successfully!', booking: saved });
     } catch (error) {
-
-       if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
+      if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
         return res.status(409).json({ message: 'Email already exists in booking list' });
       }
-
       console.error('Error creating booking:', error);
       res.status(500).json({ message: 'Server error', error: error.message });
     }
